@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="btn1_value" translatable="false">这是一个点击事件的描述</string>
+    <string name="btn2_value" translatable="false">Clear点击次数</string>
+    <string name="toast_message" translatable="false">这是一个点击事件的描述,The actual lengths are about 3.5 seconds for the long Toast and 2 seconds for the short Toast</string>
+    <string name="btn_value" translatable="false">点击统计点击次数</string>
+    <string name="boring" translatable="false">你真够无聊的，点这么多次，如果想重新开始计数，请点击Clear</string>
+    <string name="hello">hello,world</string>
+    <string name="edittext_uri">https://codemilk.cn</string>
+    <string name="button_uri">Open Website</string>
+
+    <string name="edittext_loc">Golden Gate Bridge</string>
+    <string name="button_loc">Open Location</string>
+
+    <string name="edittext_share">\'Twas brillig and the slithy toves</string>
+    <string name="button_share">Share This Text</string>
+</resources>
