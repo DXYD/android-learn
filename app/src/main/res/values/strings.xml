@@ -15,4 +15,20 @@
     <string name="edittext_share">\'Twas brillig and the slithy toves</string>
     <string name="button_share">Share This Text</string>
     <string name="share_txt">hello,这是一次share</string>
+    <string name="intro_text">intro_text/介绍文字</string>
+    <string name="donuts">donuts/甜甜圈的描述文字</string>
+    <string name="froyo">froyo/冻酸奶的描述文字</string>
+    <string name="ice_cream_sandwiches">ice_cream_sandwiches/冰激凌、奶油、三明治的描述文字</string>
+
+    <string name="donut_order_message">You ordered a donut.</string>
+    <string name="ice_cream_order_message">You ordered an ice cream sandwich.</string>
+    <string name="froyo_order_message">You ordered a FroYo.</string>
+    <string name="enter_phone_hint">enter_phone_hint</string>
+
+    <string-array name="labels_array">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Mobile</item>
+        <item>Other</item>
+    </string-array>
 </resources>
