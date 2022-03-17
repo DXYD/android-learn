@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private int Count = 0;
     private TextView ShowCount;
     private Button btu_countOnclick;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ShowCount = findViewById(R.id.show_count);
         btu_countOnclick = findViewById(R.id.button_count);
+
+        textView = findViewById(R.id.text_uri_message);
+
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+        if (uri != null) {
+            String uri_string = "URI: " + uri.toString();
+            displayMsg(uri_string);
+            textView.setText(uri_string);
+        }
+
     }
 
     /**
@@ -61,4 +75,9 @@ public class MainActivity extends AppCompatActivity {
         ShowCount.setTextSize(250);
         btu_countOnclick.setOnClickListener(this::countOnclick);
     }
+
+    public void displayMsg(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
 }

@@ -49,4 +49,6 @@
         android:text="@string/button_share"
         android:onClick="shareText"/>
 
+
+
 </LinearLayout>
