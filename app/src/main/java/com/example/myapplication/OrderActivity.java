@@ -1,15 +1,21 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -19,8 +25,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_order);
 
         Intent intent = getIntent();
-        String message = "Order: " +
-                intent.getStringExtra(DroidCafe.EXTRA_MESSAGE);
+        String message = "Order: " + intent.getStringExtra(DroidCafe.EXTRA_MESSAGE);
         TextView textView = findViewById(R.id.order_textview);
         textView.setText(message);
 
@@ -35,7 +40,51 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
             spinner.setAdapter(adapter);
         }
 
+        EditText editText = findViewById(R.id.editText_main);
+        if (editText != null) {
+            editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                    boolean handled = false;
+                    if (actionId == EditorInfo.IME_ACTION_SEND) {
+                        dialNumber();
+                        handled = true;
+                    }
+                    return handled;
+                }
+            });
+        }
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+
     }
+
+
+    private void dialNumber() {
+        // find the editText_main view
+        EditText editText = findViewById(R.id.editText_main);
+        String phoneNum = null;
+        // If the editText field is not null
+        // concatenate "tel: " with the phone number for dialing
+        if (editText != null) {
+            phoneNum = "tel:" + editText.getText().toString();
+        }
+        // Optional: Log the concatenated phone number for dialing.
+        Log.d("TAG :", "dialNumber: " + phoneNum);
+        // Specify the intent.
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        // Set the data for the intent as the phone number.
+        intent.setData(Uri.parse(phoneNum));
+        // If the intent resolves to a package (app),
+        // start the activity with the intent.
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Log.d("ImplicitIntents", "Can't handle this!");
+        }
+    }
+
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -51,5 +100,8 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
     private void displayToast(String message) {
         Toast.makeText(getApplicationContext(), message,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public void onRadioButtonClicked(View view) {
     }
 }

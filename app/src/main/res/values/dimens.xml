@@ -2,4 +2,6 @@
 <resources>
     <dimen name="text_heading">100px</dimen>
     <dimen name="margin_wide">100px</dimen>
+    <dimen name="padding_regular">10dp</dimen>
+    <dimen name="line_spacing">5sp</dimen>
 </resources>

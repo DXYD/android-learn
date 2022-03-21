@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView ShowCount;
     private Button btu_countOnclick;
     private TextView textView;
+    private Button btn_toBuyOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ShowCount = findViewById(R.id.show_count);
         btu_countOnclick = findViewById(R.id.button_count);
+        btn_toBuyOrder = findViewById(R.id.btn_toBuyOrder);
 
         textView = findViewById(R.id.text_uri_message);
 
@@ -37,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(uri_string);
         }
 
+        btn_toBuyOrder(btn_toBuyOrder);
+    }
+
+
+    public void btn_toBuyOrder(Button btn_toBuyOrder){
+        btn_toBuyOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DroidCafe.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**

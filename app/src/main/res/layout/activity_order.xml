@@ -6,43 +6,116 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:subtitleTextColor="#FFF"
+        app:titleTextColor="#FFF"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/order_textview"
-        android:layout_width="150dp"
-        android:layout_height="239dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="178dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="548dp"
         android:text="TextView"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <Spinner
         android:id="@+id/label_spinner"
-        android:layout_width="213dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="176dp"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phone_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
-        app:layout_constraintStart_toEndOf="@+id/order_textview"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phone_text"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/phone_text"
-        android:layout_width="214dp"
-        android:layout_height="41dp"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/enter_phone_hint"
         android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="@+id/label_spinner"
-        app:layout_constraintEnd_toEndOf="@+id/label_spinner"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/label_spinner"
-        app:layout_constraintTop_toTopOf="@+id/order_textview"
-        app:layout_constraintVertical_bias="0.361" />
+        app:layout_constraintEnd_toStartOf="@+id/label_spinner"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_textview" />
+
+    <EditText
+        android:id="@+id/editText_main"
+        android:layout_width="185dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="220dp"
+        android:imeOptions="actionSend"
+
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_text">
+
+        <RadioButton
+            android:id="@+id/sameday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/same_day_messenger_service" />
+
+        <RadioButton
+            android:id="@+id/nextday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/next_day_ground_delivery" />
+
+        <RadioButton
+            android:id="@+id/pickup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/pick_up" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="200dp"
+        android:textSize="20dp"
+        android:layout_height="50dp"
+        app:flow_verticalAlign="center"
+        android:text="@string/DIAL_textView"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_main"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText_main" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
