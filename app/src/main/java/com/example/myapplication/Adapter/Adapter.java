@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.Bean.Goods;
@@ -17,6 +18,18 @@ public class Adapter extends BaseAdapter {
 
     private List<Goods> data;
     private Context context;
+
+    /**
+     * 经常在文章中看到ViewHolder来优化ListView，但其实ViewHolder不是库函数，而是需要自己定义的类。
+     * （注意viewHolder里面item方法重绘：如invalidate，setVisiblity，requestLayout后，会调用adapter的getView方法）
+     *
+     * 使用ViewHolder的原因是findViewById方法耗时较大，如果控件个数过多，会严重影响性能，
+     * 而使用ViewHolder主要是为了可以省去这个时间。通过setTag，getTag直接获取View。
+     */
+    class  ViewHolder{
+        TextView name;
+        ImageView img;
+    }
 
     public Adapter(List<Goods> data, Context context) {
         this.data = data;
@@ -69,13 +82,21 @@ public class Adapter extends BaseAdapter {
      */
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        ViewHolder holder = new ViewHolder();
+
         if ( view == null){
             view = LayoutInflater.from(context).inflate(R.layout.list_item,viewGroup,false);
+            holder.name = (TextView) view.findViewById(R.id.tv);
+            holder.img = (ImageView) view.findViewById(R.id.im);
+            view.setTag(holder);
+        }else{
+            holder = (ViewHolder) view.getTag();
         }
-        TextView textView = view.findViewById(R.id.tv);
-        textView.setText(data.get(i).getShopName());
-        TextView textView1 = view.findViewById(R.id.tv_1);
-        textView1.setText("这是一段商品的描述");
+
+        //设置holder
+        holder.name.setText(data.get(i).getShopName());
+        holder.img.setImageResource(R.drawable.ic_launcher_foreground);
+
         Log.e("goods ", "onCreate: goods"+ i);
         return view;
     }
