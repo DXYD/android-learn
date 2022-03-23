@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/androidCode/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1475" />
         <entry key="..\:/androidCode/app/src/main/res/drawable/ic_launcher_background.xml" value="0.265" />
+        <entry key="..\:/androidCode/app/src/main/res/layout/activity_alert_dialog.xml" value="0.1" />
         <entry key="..\:/androidCode/app/src/main/res/layout/activity_contextmenu.xml" value="0.33303411131059246" />
         <entry key="..\:/androidCode/app/src/main/res/layout/activity_droid_cafe.xml" value="0.38645833333333335" />
         <entry key="..\:/androidCode/app/src/main/res/layout/activity_list_view.xml" value="0.38645833333333335" />

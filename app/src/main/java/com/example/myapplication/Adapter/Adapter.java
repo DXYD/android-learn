@@ -1,6 +1,7 @@
 package com.example.myapplication.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.Bean.Goods;
 import com.example.myapplication.R;
+import com.example.myapplication.alert_dialog;
 
 import java.util.List;
 
@@ -96,6 +98,16 @@ public class Adapter extends BaseAdapter {
         //设置holder
         holder.name.setText(data.get(i).getShopName());
         holder.img.setImageResource(R.drawable.ic_launcher_foreground);
+
+        holder.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,alert_dialog.class);
+                intent.putExtra("id", String.valueOf(i));
+                Log.e("id : ", "onClick: " + i);
+                context.startActivity(intent);
+            }
+        });
 
         Log.e("goods ", "onCreate: goods"+ i);
         return view;
