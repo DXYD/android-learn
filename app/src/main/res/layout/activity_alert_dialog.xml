@@ -16,5 +16,22 @@
         android:onClick="btn_dialog">
     </Button>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="307dp"
+        android:gravity="center"
+        android:onClick="btn_insert_Data"
+        android:text="点击插入数据"
+        android:textSize="30sp">
+    </Button>
+
+    <Button
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="30sp"
+        android:onClick="btn_delete_data"
+        android:text="点击删除数据">
+    </Button>
 
 </LinearLayout>

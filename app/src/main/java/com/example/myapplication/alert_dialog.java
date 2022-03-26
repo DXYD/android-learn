@@ -9,6 +9,9 @@ import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Bean.User;
+import com.example.myapplication.Dao.UserDao;
+
 public class alert_dialog extends AppCompatActivity {
 
     private String str;
@@ -42,5 +45,21 @@ public class alert_dialog extends AppCompatActivity {
                 Log.e(TAG, "onClick: 点击了中间");
             }
         }).create().show();
+    }
+
+    public void btn_delete_data(View view) {
+
+    }
+
+    public void btn_insert_Data(View view) {
+        UserDao userDao = new UserDao(this);
+        userDao.open();
+        userDao.addUser(new User("李四","男","123456"));
+
+/*        ArrayList list = userDao.getUsers();
+
+        for (Object user: list) {
+            Log.e(TAG, "btn_insert_Data: "+ user);
+        }*/
     }
 }
