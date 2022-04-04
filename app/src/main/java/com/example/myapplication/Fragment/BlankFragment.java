@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
@@ -27,8 +28,15 @@ public class BlankFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private View rootView;
+
     public BlankFragment() {
         // Required empty public constructor
+    }
+
+    private IFragmentCallback fragmentCallback;
+    public void setFragmentCallback(IFragmentCallback callback){
+        fragmentCallback = callback;
     }
 
     /**
@@ -72,6 +80,16 @@ public class BlankFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false);
+        if (rootView == null) {
+            rootView = inflater.inflate(R.layout.fragment_blank, container, false);
+        }
+        Button btn = rootView.findViewById(R.id.btn_blank_1);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentCallback.sendMsgToActivity("BlankFragment send msg to Activity(MainFragment)");
+            }
+        });
+        return rootView;
     }
 }

@@ -3,6 +3,7 @@ package com.example.myapplication.Fragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -42,11 +43,28 @@ public class MainFragment extends AppCompatActivity implements View.OnClickListe
                 replaceFragement(new BlankFragment());
                 break;
             case R.id.btn_fragment_3:
+                // send Bundle msg
                 Bundle bundle = new Bundle();
                 bundle.putString("message", "我喜欢你ma");
                 BlankFragment blankFragment = new BlankFragment();
                 blankFragment.setArguments(bundle);
-                replaceFragement(blankFragment);
+//                replaceFragement(blankFragment);
+                /**
+                 *  BlankFragment bf = new BlankFragment();
+                 */
+                BlankFragment bf = new BlankFragment();
+                bf.setFragmentCallback(new IFragmentCallback() {
+                    @Override
+                    public void sendMsgToActivity(String msg) {
+                        Toast.makeText(MainFragment.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public String getMsgFromActivity(String msg) {
+                        return null;
+                    }
+                });
+                replaceFragement(bf);
                 break;
             default:
                 break;
@@ -66,7 +84,6 @@ public class MainFragment extends AppCompatActivity implements View.OnClickListe
      *  关于 activity 与 Fragment 的通信
      *  采用原生bundle来进行
      */
-
 
 
 }
