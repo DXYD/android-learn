@@ -35,6 +35,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Service.ServiceMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Fragment.MainFragment"
             android:exported="true">
             <intent-filter>
@@ -46,11 +49,14 @@
         <activity
             android:name=".view_pager"
             android:exported="true">
-            <!--            <intent-filter>
+
+            <!--
+                            <intent-filter>
                             <action android:name="android.intent.action.MAIN" />
 
                             <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>-->
+                        </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".SqliteOpenHelper"
@@ -137,6 +143,10 @@
                         </intent-filter>
             -->
         </activity>
+
+        <!--组件必须在清单文件里面注册-->
+        <service android:name=".Service.serviceT">
+        </service>
     </application>
 
 </manifest>

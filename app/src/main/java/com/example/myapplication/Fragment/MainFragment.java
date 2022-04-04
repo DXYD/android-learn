@@ -1,5 +1,6 @@
 package com.example.myapplication.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.R;
+import com.example.myapplication.Service.ServiceMainActivity;
 
 public class MainFragment extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +40,7 @@ public class MainFragment extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btn_fragment_1:
                 replaceFragement(new ItemFragment());
+                startActivity( new Intent(MainFragment.this, ServiceMainActivity.class));
                 break;
             case R.id.btn_fragment_2:
                 replaceFragement(new BlankFragment());
