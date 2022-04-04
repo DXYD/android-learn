@@ -56,6 +56,7 @@ public class ServiceMainActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.btn_service_3:
                 display("点击了btn_service3");
+                startActivity(new Intent(this,showServiceIntroduce.class));
                 break;
             case R.id.btn_service_4:
                 display("点击了btn_service4");

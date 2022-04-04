@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -43,10 +44,10 @@ public class serviceT extends Service {
                 e.printStackTrace();
             }
         }   */
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i <= 10000; i++) {
             Log.e(TAG, "后台运行中: " + i);
-
         }
+        Toast.makeText(this, "后台执行服务", Toast.LENGTH_SHORT).show();
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -61,6 +62,7 @@ public class serviceT extends Service {
     public void onDestroy() {
         Log.d(TAG, "onDestroy()...... ");
         Log.e(TAG, "关闭了service");
+        Toast.makeText(this, "关闭后台服务", Toast.LENGTH_SHORT).show();
         super.onDestroy();
     }
 }

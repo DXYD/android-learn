@@ -83,4 +83,22 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="Service_Introduce_text"><b><i>开启服务（startService）</i></b>
+服务一旦开启就与调用者没有任何关系， 当调用者Activity退出时，服务仍在运行，不会影响后台service的运行。
+在Activity中不能调用服务里面的方法
+        \n\n
+<b><i>绑定服务（bindService）</i></b>
+通过绑定方式开启服务，服务跟服务不求同生，但求同死。如果调用者的Activity退出了，那他绑定的服务也会跟着退出。
+
+在Activity中能调用服务里面的方法
+        \n\n
+<b>
+第一种，开始就执行oncreate，和onstart，结束时直接destroy，
+
+而且调用者退出的时候这个服务不会退出，下次调用者再次上线时，依然可以关闭这个服务
+
+就是说这个服务可以独立生活
+</b>
+</string>
+
 </resources>
