@@ -35,6 +35,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Receiver.MainActivity_Receiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Service.showServiceIntroduce"
             android:exported="false" />
         <activity
@@ -43,11 +52,11 @@
         <activity
             android:name=".Fragment.MainFragment"
             android:exported="true">
-            <intent-filter>
+<!--            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".view_pager"
@@ -146,7 +155,7 @@
                         </intent-filter>
             -->
         </activity> <!-- 组件必须在清单文件里面注册 -->
-        <service android:name=".Service.serviceT"></service>
+        <service android:name=".Service.serviceT" />
     </application>
 
 </manifest>
