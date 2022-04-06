@@ -8,13 +8,14 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Glide.MainActivity_Glide;
 import com.example.myapplication.R;
 
 public class MainActivity_Receiver extends AppCompatActivity {
 
     private CustomReceiver mCustomReceiver;
 
-    private Button btn_RegReceiver, btn_UnregReceiver, btn_SendBroadcast;
+    private Button btn_RegReceiver, btn_UnregReceiver, btn_SendBroadcast, btn_ToGlideTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class MainActivity_Receiver extends AppCompatActivity {
         btn_RegReceiver = (Button) findViewById(R.id.btnRegReceiver);
         btn_UnregReceiver = (Button) findViewById(R.id.btnUnregReceiver);
         btn_SendBroadcast = (Button) findViewById(R.id.btnSendBroadcast);
+        btn_ToGlideTest = findViewById(R.id.btnToGlide_test);
 
         btn_RegReceiver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,5 +72,13 @@ public class MainActivity_Receiver extends AppCompatActivity {
                 sendBroadcast(it); //發送廣播訊息
             }
         });
+
+        btn_ToGlideTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity_Glide.class));
+            }
+        });
+
     }
 }
