@@ -40,16 +40,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Glide.MainActivity_Glide"
-            android:exported="false" />
-        <activity
-            android:name=".Receiver.MainActivity_Receiver"
+            android:name=".OKHttp.MainActivityOkhttp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Glide.MainActivity_Glide"
+            android:exported="false" />
+        <activity
+            android:name=".Receiver.MainActivity_Receiver"
+            android:exported="true">
+            <!--            <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
+
+                            <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".Service.showServiceIntroduce"
