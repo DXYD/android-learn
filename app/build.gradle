@@ -50,4 +50,7 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
     implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+
+    implementation group: 'org.litepal.guolindev', name: 'core', version: '3.2.3'
 }

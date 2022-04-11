@@ -40,16 +40,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Retrofit.MainActivity_Retrofit"
-            android:exported="false" />
-        <activity
-            android:name=".OKHttp.MainActivityOkhttp"
+            android:name=".other.MainActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Retrofit.MainActivity_Retrofit"
+            android:exported="false" />
+        <activity
+            android:name=".OKHttp.MainActivityOkhttp"
+            android:exported="true">
+
+            <!--
+                            <intent-filter>
+                            <action android:name="android.intent.action.MAIN" />
+
+                            <category android:name="android.intent.category.LAUNCHER" />
+                        </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".Glide.MainActivity_Glide"
